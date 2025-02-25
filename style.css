@@ -1,0 +1,252 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Cấu trúc layout chính (chia thành 3 cột) */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr; /* Sidebar - Main - Extra Info */
+  gap: 20px;
+  width: 80%;
+  background: white;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+/* Sidebar (Cột trái) */
+.sidebar {
+  text-align: center;
+  background: #007bff;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+/* Hover đổi màu sidebar */
+.sidebar:hover {
+  background: #0056b3;
+}
+
+/* Hiệu ứng hover ảnh */
+.sidebar img {
+  width: 120px;
+  border-radius: 5%;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease;
+}
+
+.sidebar img:hover {
+  transform: scale(1.1);
+}
+
+/* Hiệu ứng hover tiêu đề */
+.sidebar h1 {
+  margin: 10px 0;
+  font-size: 22px;
+}
+
+.sidebar h1:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Định dạng p trong sidebar */
+.sidebar p {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* Chữ đậm ở dòng chẵn */
+.sidebar p:nth-child(even) {
+  font-weight: bold;
+}
+
+/* Chữ nghiêng ở dòng lẻ */
+.sidebar p:nth-child(odd) {
+  font-style: italic;
+}
+
+/* Main (Cột giữa) */
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Extra Info (Cột phải) */
+.extra-info {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* Style chung cho section */
+.section {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+/* Header của từng phần */
+.section h2 {
+  background: #007bff;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  position: relative;
+  transition: background 0.3s ease;
+}
+
+/* Hover header */
+.section h2:hover {
+  background: #0056b3;
+  cursor: pointer;
+}
+
+/* Biểu tượng trước tiêu đề */
+.section h2::before {
+  content: "📌 ";
+  font-size: 18px;
+}
+
+/* Hiệu ứng hover đoạn văn */
+.section p {
+  position: relative;
+  padding-bottom: 5px;
+}
+
+/* Thanh ngang dưới đoạn văn */
+.section p::after {
+  content: "";
+  display: block;
+  width: 50%;
+  height: 2px;
+  background: #007bff;
+  margin-top: 5px;
+  transition: width 0.3s ease;
+}
+
+.section p:hover::after {
+  width: 100%;
+}
+
+/* Style danh sách chung */
+.section ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* Item trong danh sách */
+.section ul li {
+  background: #e0e0e0;
+  padding: 8px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  transition: background 0.3s ease, transform 0.2s ease;
+  position: relative;
+}
+
+/* Hover item danh sách */
+.section ul li:hover {
+  background: #007bff;
+  color: white;
+  transform: scale(1.05);
+}
+
+/* Hiệu ứng phần tử đầu tiên và cuối cùng trong danh sách */
+.section ul li:first-child {
+  font-weight: bold;
+}
+
+.section ul li:last-child {
+  font-style: italic;
+}
+
+/* Sở thích - Thêm icon trước mỗi mục */
+.hobbies ul li::before {
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+/* Icon tương ứng với từng sở thích */
+.hobbies ul li:nth-child(1)::before {
+  content: "⚽"; /* Đá bóng */
+}
+
+.hobbies ul li:nth-child(2)::before {
+  content: "🎮"; /* Chơi game */
+}
+
+.hobbies ul li:nth-child(3)::before {
+  content: "✈️"; /* Du lịch */
+}
+
+.hobbies ul li:nth-child(4)::before {
+  content: "🎵"; /* Nghe nhạc */
+}
+
+/* Thêm icon cờ vào phần Ngôn ngữ */
+.section.languages ul li {
+  position: relative;
+  padding-left: 40px; /* Dịch nội dung sang phải để tránh chồng icon */
+}
+
+/* Icon cờ cho từng ngôn ngữ */
+.section.languages ul li:nth-child(1)::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  width: 24px;
+  height: 16px;
+  background: url("england1.png") no-repeat center;
+  background-size: cover;
+}
+
+.section.languages ul li:nth-child(2)::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  width: 24px;
+  height: 16px;
+  background: url("korea.png") no-repeat center;
+  background-size: cover;
+}
+
+/* Thiết lập cho phần chứng chỉ */
+.certificate-item {
+  position: relative;
+  padding-bottom: 5px;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out;
+}
+
+/* Hình ảnh chứng chỉ ẩn ban đầu */
+.certificate-item .certificate-image {
+  display: block;
+  width: 100%;
+  max-height: 0;
+  transition: max-height 0.5s ease-in-out;
+}
+
+/* Khi hover vào phần chứng chỉ, hình ảnh sẽ cuộn xuống */
+.certificate-item:hover .certificate-image {
+  max-height: 200px; /* Điều chỉnh chiều cao theo kích thước ảnh */
+}
+
+/* Responsive cho màn hình nhỏ */
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr; /* Chuyển về 1 cột */
+    width: 90%;
+  }
+}
